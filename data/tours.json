@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Himalaya Adventure",
+    "summary": "Trekking and rafting in the Himalayas.",
+    "price": 25000,
+    "duration": "7 days"
+  },
+  {
+    "id": "2",
+    "name": "Indian Heritage",
+    "summary": "Explore forts and palaces in Rajasthan.",
+    "price": 18000,
+    "duration": "5 days"
+  },
+  {
+    "id": "3",
+    "name": "Goa Beaches",
+    "summary": "Beach resorts and fun in Goa.",
+    "price": 22000,
+    "duration": "6 days"
+  },
+  {
+    "id": "4",
+    "name": "Wildlife Safari",
+    "summary": "Safari in Ranthambore National Park.",
+    "price": 21000,
+    "duration": "4 days"
+  }
+]

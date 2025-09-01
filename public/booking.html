@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tour Booking</title>
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+  <h2>Book Your Tour</h2>
+  <form id="bookingForm">
+    <label>Name: <input type="text" name="name" id="name"></label>
+    <span class="error" id="error-name"></span><br>
+    <label>Email: <input type="email" name="email" id="email"></label>
+    <span class="error" id="error-email"></span><br>
+    <label>Tour Package:
+      <select name="package" id="package">
+        <option value="">Select a Package</option>
+        <option>Himalaya Adventure</option>
+        <option>Indian Heritage</option>
+        <option>Goa Beaches</option>
+        <option>Wildlife Safari</option>
+      </select>
+    </label>
+    <span class="error" id="error-package"></span><br>
+    <label>Date: <input type="date" name="date" id="date"></label>
+    <span class="error" id="error-date"></span><br>
+    <label>Requests: <textarea name="details" id="details"></textarea></label><br>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="success"></div>
+  <script src="booking.js"></script>
+</body>
+</html>
