@@ -1,20 +1,43 @@
-// routes/contact.js
 const express = require('express');
 const router = express.Router();
 
-// Store messages in memory (for demo)
-const messages = [];
+// Sample in-memory storage for contact messages
+let contactMessages = [];
 
-// Contact form API
+// GET all contact messages
+router.get('/', (req, res) => {
+    res.status(200).json(contactMessages);
+});
+
+// POST a new contact message
 router.post('/', (req, res) => {
-  const { name, email, message } = req.body;
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-  const entry = { id: (messages.length + 1).toString(), name, email, message, date: new Date() };
-  messages.push(entry);
-  // In real app, send email here via nodemailer...
-  res.status(201).json({ message: 'Contact received', entry });
+    const message = req.body;
+    contactMessages.push(message);
+    res.status(201).json({ message: 'Contact message added!', data: message });
+});
+
+// PATCH an existing contact message
+router.patch('/:id', (req, res) => {
+    const { id } = req.params;
+    const index = contactMessages.findIndex(msg => msg.id === parseInt(id));
+    if (index !== -1) {
+        contactMessages[index] = { ...contactMessages[index], ...req.body };
+        res.status(200).json({ message: 'Contact message updated!', data: contactMessages[index] });
+    } else {
+        res.status(404).json({ message: 'Contact message not found!' });
+    }
+});
+
+// DELETE a contact message
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    const index = contactMessages.findIndex(msg => msg.id === parseInt(id));
+    if (index !== -1) {
+        contactMessages.splice(index, 1);
+        res.status(200).json({ message: 'Contact message deleted!' });
+    } else {
+        res.status(404).json({ message: 'Contact message not found!' });
+    }
 });
 
 module.exports = router;
